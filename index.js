@@ -1,4 +1,6 @@
 require('dotenv').config();
+const updateHelper = require('./helpers/update.resources.version');
+const schedule = require('node-schedule');
 
 const express = require('express');
 const app = express();
@@ -14,3 +16,8 @@ app.use('/graphql', graphqlHTTP({
 
 app.listen(port);
 console.log(`Listening on port ${port}`);
+
+var j = schedule.scheduleJob('0 0 14,28 * *', function(fireDate){
+  updateHelper.updateResourceVersions();
+});
+

@@ -17,7 +17,7 @@ app.use('/graphql', graphqlHTTP({
 app.listen(port);
 console.log(`Listening on port ${port}`);
 
-var j = schedule.scheduleJob('0 0 14,28 * *', function(fireDate){
-  updateHelper.updateResourceVersions();
-});
+// var j = schedule.scheduleJob('0 0 14,28 * *', function(fireDate){
+//   updateHelper.updateResourceVersions();
+// });
 

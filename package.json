@@ -1,0 +1,22 @@
+{
+  "name": "riot-api-graphql",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --require dotenv/config index.js"
+  },
+  "repository": "git@github.com:augustocheme/riot-api-graphql.git",
+  "author": "<augusto.cheme@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "compare-versions": "^3.4.0",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "express-graphql": "^0.7.1",
+    "fs": "0.0.1-security",
+    "graphql": "^14.0.2",
+    "node-fetch": "^2.3.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  }
+}

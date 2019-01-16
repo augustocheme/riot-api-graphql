@@ -1,7 +1,7 @@
 const api_key = process.env.API_KEY;
 const fetch = require('node-fetch');
 
-const ddragonapi = require('ddragon-api');
+const championResolver = require('../resolvers/champion');
 
 const {
     // GraphQLInt,
@@ -31,8 +31,6 @@ const queryType = new GraphQLObjectType({
                 type: new GraphQLNonNull(GraphQLString),
               },
             },
-            // resolve: (root, { name }, { resolvers }) =>
-            //   resolvers.summonerName.load(name),
             resolve: (root, args) => fetch(`https://${args.region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${args.name}?api_key=${api_key}`).then(res => res.json())
           },
           champion: {
@@ -42,15 +40,12 @@ const queryType = new GraphQLObjectType({
                       type: new GraphQLNonNull(GraphQLString)
                   }
               },
-              resolve: (root,args) => ddragonapi.getChapionById(args.name)
-          }
+              resolve: (root,args) => championResolver.getChampionByName(args.name)
+          },
     })
 });
 
 
-module.exports = {
-    query: new GraphQLSchema({
-        // query: queryType;
-        query: queryType,
-    })
-}
+module.exports = new GraphQLSchema({
+    query: queryType
+});

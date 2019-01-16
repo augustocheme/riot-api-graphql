@@ -10,7 +10,6 @@
   "license": "MIT",
   "dependencies": {
     "compare-versions": "^3.4.0",
-    "ddragon-api": "^1.0.3",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "express-graphql": "^0.7.1",
